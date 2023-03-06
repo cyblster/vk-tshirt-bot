@@ -12,7 +12,6 @@ class MyApp(Flask):
         self.api_token = config.API_TOKEN
         self.api_version = config.API_VERSION
 
-        self.group_id = None
         self.post_id = None
 
         super().__init__(import_name)
