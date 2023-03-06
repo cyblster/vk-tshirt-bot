@@ -22,6 +22,9 @@ def root():
         if not app.is_ready():
             return '', 200
 
+        if event['object']['owner_id'] == -app.group_id:
+            return '', 200
+
         if 'attachments' not in event['object']:
             app.reply_to_comment(app.group_id, app.post_id, event['object']['id'], 'Ответочка')
             return '', 200
