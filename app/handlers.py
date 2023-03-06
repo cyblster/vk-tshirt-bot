@@ -7,6 +7,8 @@ from app import app, config
 def root():
     event = request.json
 
+    print(event)
+
     if event['type'] == 'confirmation':
         return config.API_CONFIRM_STRING, 200
 
