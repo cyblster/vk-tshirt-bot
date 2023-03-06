@@ -8,6 +8,6 @@ def root():
     event = request.json
 
     if event['type'] == 'confirmation':
-        return config.APP_CONFIRM_STRING, 200
+        return config.API_CONFIRM_STRING, 200
 
     print(event)
