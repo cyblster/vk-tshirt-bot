@@ -14,7 +14,7 @@ def root():
 
     if event['type'] == 'wall_post_new':
         if app.post_id is None:
-            app.post_id = event['id']
+            app.post_id = event['object']['id']
             return {'error': False, 'message': 'Post has been successfully created'}, 200
         return {'error': True, 'message': 'Post already created'}, 200
 
