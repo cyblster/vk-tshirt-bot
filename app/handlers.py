@@ -16,21 +16,21 @@ def root():
         if app.post_id is None:
             app.post_id = event['object']['id']
 
-        return '', 200
+        return 'OK', 200
 
     if event['type'] == 'wall_reply_new':
         if not app.is_ready():
-            return '', 200
+            return 'OK', 200
 
         if event['object']['owner_id'] == -app.group_id:
-            return '', 200
+            return 'OK', 200
 
         if 'attachments' not in event['object']:
             app.reply_to_comment(app.group_id, app.post_id, event['object']['id'], 'Ответочка')
-            return '', 200
+            return 'OK', 200
 
         if event['object']['attachments']['type'] != 'photo':
-            return '', 200
+            return 'OK', 200
 
         embed_url = event['object']['attachments']['photo']['sizes'][-1]['url']
 
