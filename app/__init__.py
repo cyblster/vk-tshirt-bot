@@ -1,3 +1,5 @@
+import dataclasses
+
 import requests
 from flask import Flask
 
@@ -12,12 +14,13 @@ class MyApp(Flask):
         self.api_token = config.API_TOKEN
         self.api_version = config.API_VERSION
 
+        self.group_id = config.GROUP_ID
         self.post_id = None
 
         super().__init__(import_name)
 
     def is_ready(self) -> bool:
-        if None not in (self.group_id, self.post_id):
+        if self.post_id is not None:
             return True
         return False
 
