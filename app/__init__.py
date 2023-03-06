@@ -1,7 +1,7 @@
 import requests
 from flask import Flask
 
-import config
+from app import config
 
 
 class MyApp(Flask):
